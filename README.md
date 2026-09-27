@@ -16,14 +16,18 @@ GitHub Pages는 `main` 브랜치의 `/docs` 폴더를 게시합니다.
 
 ## TRASS 수출 스냅샷
 
-수출입 모니터는 epic Finance TRASS-BF의 계정 커스텀 그룹 중 소비재 11개를 사용합니다.
-로컬에서 `epic-trass groups --csv`로 받은 CSV를 아래 변환기에 넣어 갱신합니다.
+수출입 모니터는 epic Finance TRASS-BF의 계정 커스텀 그룹 11개와 표준 품목 10개의
+월간 확정 시계열을 사용합니다. 아래 명령 하나로 갱신합니다.
 
 ```bash
-python3 scripts/import_trass_snapshot.py /path/to/trass-groups.csv
+python3 scripts/update_trade_data.py
 ```
 
-변환 결과는 Git에서 제외된 `private-data/trade.json`에 저장됩니다. 대시보드의
+수집 파일에는 최근 60개월 추이, 최신 완결 분기 QoQ, TTM YoY, 월별 계절지수,
+주요 수출국 12개와 대륙별 집계가 포함됩니다. 변환 결과는 Git에서 제외된
+`private-data/trade.json`에 저장됩니다. 대시보드의
 `로컬 TRASS 불러오기` 버튼으로 이 파일을 선택하면 데이터가 현재 브라우저의
 로컬 저장소에만 보관됩니다. 파일 내용이나 계정 인증 정보는 GitHub 또는 별도 서버로
 전송되지 않습니다.
+
+기존 CSV 변환기 `scripts/import_trass_snapshot.py`도 단일 시점 스냅샷용으로 유지합니다.
