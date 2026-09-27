@@ -1,6 +1,12 @@
 name: Google Trends 일일 갱신
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-google-trends.yml"
+      - "scripts/update_trends.py"
+      - "requirements.txt"
   schedule:
     - cron: "27 22 * * *"
   workflow_dispatch:
