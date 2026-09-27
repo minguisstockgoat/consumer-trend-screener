@@ -143,7 +143,9 @@ def trend_points(values: list[int], delta: int) -> int:
     return max(0, min(35, round(raw)))
 
 
-def fetch_batch(batch: list[tuple[str, str, str, str]]) -> dict[str, dict[str, Any]]:
+def fetch_batch(
+    batch: list[tuple[str, str, str, str]],
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
     from trendspyg import (
         download_google_trends_comparison,
         download_google_trends_interest_over_time,
@@ -178,11 +180,13 @@ def fetch_batch(batch: list[tuple[str, str, str, str]]) -> dict[str, dict[str, A
 
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     output = {}
+    skipped = []
     for item_id, query, item_geo, geo_label in batch:
         points = clean_points(series_by_query.get(query, []))
         trend = weekly_values(points)
         if len(trend) != 12 or not any(trend):
-            raise ValueError(f"{item_id}: usable trend points not returned")
+            skipped.append(f"{item_id}: usable trend points not returned")
+            continue
         delta = percent_change(points)
         output[item_id] = {
             "query": query,
@@ -194,7 +198,9 @@ def fetch_batch(batch: list[tuple[str, str, str, str]]) -> dict[str, dict[str, A
             "base": moving_base(trend),
             "trend_points": trend_points(trend, delta),
         }
-    return output
+    if not output:
+        raise ValueError("no usable trend points returned for this batch")
+    return output, skipped
 
 
 def main() -> int:
@@ -214,9 +220,10 @@ def main() -> int:
 
     for index, batch in enumerate(chosen):
         try:
-            updates = fetch_batch(batch)
+            updates, skipped = fetch_batch(batch)
             state["items"].update(updates)
             updated_ids.extend(updates)
+            errors.extend(f"batch {start + index}: {message}" for message in skipped)
             print(f"updated: {', '.join(updates)}", flush=True)
         except Exception as exc:  # Upstream browser and rate-limit errors are preserved in run metadata.
             message = f"batch {start + index}: {type(exc).__name__}: {exc}"
@@ -255,4 +262,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
