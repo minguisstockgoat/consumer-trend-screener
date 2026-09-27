@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source": "Google Trends Explore",
+  "method": "trendspyg browser collector",
+  "updated_at": null,
+  "next_batch": 0,
+  "items": {},
+  "last_run": {
+    "status": "waiting_for_first_run",
+    "updated_ids": [],
+    "errors": []
+  }
+}
+

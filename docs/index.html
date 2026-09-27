@@ -35,7 +35,7 @@
   <main>
     <header class="topbar">
       <div><div class="eyebrow">Consumer Intelligence</div><h1>소비재 트렌드 스크리너</h1></div>
-      <div class="top-actions"><span class="live"><i></i>모니터 정상</span><span class="asof">2026.09.27 · Asia/Seoul</span></div>
+      <div class="top-actions"><span class="live"><i></i><span id="liveText">데이터 확인 중</span></span><span class="asof" id="asof">마지막 정상값 로딩 중</span></div>
     </header>
 
     <section class="hero">
@@ -79,7 +79,7 @@
           <div class="logic-step"><span class="num">03 · LOCALIZE</span><h4>현지 유통 확산</h4><p>리테일 입점, 판매순위, 리뷰 속도, 현지 기사로 실제 구매 전환을 검증합니다.</p><code>20% · retail + review velocity</code></div>
           <div class="logic-step"><span class="num">04 · MAP</span><h4>투자 연결성</h4><p>브랜드–상장사–매출 노출도를 매핑하고 계절성·캠페인·뉴스성 급등을 감점합니다.</p><code>15% · exposure − noise penalty</code></div>
         </div>
-        <div class="footnote">프로토타입 안내: 화면의 트렌드·점수 수치는 인터랙션과 판단 로직 검증을 위한 예시 데이터입니다. 브랜드–기업 매핑은 기업 공식 자료를 우선하되, 실제 운용 시 공시·인수합병·라이선스 변동을 날짜별로 관리해야 합니다. Google Trends, 관세청·UN Comtrade·Eurostat, 리테일/뉴스 원천도 스냅샷으로 저장해 재현성과 시차를 관리합니다.</div>
+        <div class="footnote">데이터 안내: Google Trends 시계열은 GitHub Actions가 매일 일부 묶음을 순환 수집하며 각 브랜드는 약 6일마다 갱신됩니다. Google Trends 공식 API가 아닌 웹 자동화 기반이므로 호출 제한 시 마지막 정상값을 유지합니다. 무역·유통 근거와 기업 연결 점수는 아직 예시 데이터이며 실제 투자 판단 전 원자료 확인이 필요합니다.</div>
       </article>
     </section>
   </main>
@@ -128,6 +128,17 @@ const catalog=[
 function generatedTrend(seed,delta){const start=25+(seed*9)%31,end=Math.max(8,Math.min(92,start*(1+delta/100)));return Array.from({length:12},(_,i)=>Math.round(start+(end-start)*i/11+((((seed+3)*i)%7)-3)*1.1))}
 catalog.forEach((r,i)=>{const [id,name,abbr,company,ownership,category,market,delta,score,stage,color,hs]=r,trend=generatedTrend(i+7,delta),base=trend.map((_,j)=>Math.round(trend[0]+(trend[11]-trend[0])*.32*j/11));items.push({id,name,abbr,company,ownership,category,market,delta,score,stage,color,trend,base,evidence:[['T','검색 변곡',`${market} 7일 변화 ${delta>=0?'+':''}${delta}% · 12주 방향성 점검`,`${Math.min(35,Math.round(score*.42))}/35`],['X','수출 확인',`${hs} 대상국 수출·수입 점유율 교차 확인`,`${Math.min(30,Math.round(score*.32))}/30`],['C','유통 확산',`${market} 리테일·리뷰·현지 기사 추적`,`${Math.min(20,Math.round(score*.18))}/20`],['I','기업 연결',`${company} · ${ownership}`,`${ownership==='비상장'?3:ownership==='상장 간접'?7:ownership==='상장 자회사'?11:14}/15`]],thesis:ownership==='비상장'?`${name}의 수요 변화는 확인할 수 있지만 직접 상장사 연결성은 낮습니다. ODM·유통·용기 등 상장 공급망의 실제 매출 노출도를 추가 확인합니다.`:`${name}은 ${company}에 ${ownership}으로 연결됩니다. 검색 지속성과 ${hs} 무역 데이터가 동행할 때 기업 실적 기여 가능성을 상향합니다.`,source:`예시 트렌드 · Google Trends, 관세청 ${hs}, ${market} 리테일 · 기업 매핑 검토 2026.09.27`})});
 items.forEach(x=>{if(!x.ownership)x.ownership=x.company.includes('비상장')?'비상장':'상장 직접'});
+function nonTrendPoints(x){return x.evidence.slice(1).reduce((sum,e)=>sum+(Number.parseInt(e[3],10)||0),0)}
+function stageFromScore(score){return score>=75?'확인':score>=60?'관찰':score>=45?'레이더':'노이즈'}
+function formatUpdatedAt(value){const d=new Date(value);return Number.isNaN(d.getTime())?'갱신 시각 미확인':new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replace(/\. /g,'.')+' KST'}
+async function loadLiveTrends(){
+ const liveText=document.querySelector('#liveText'),asof=document.querySelector('#asof');
+ try{
+  const response=await fetch(`data/trends.json?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const payload=await response.json(),live=payload.items||{};let updated=0;
+  items.forEach(x=>{const row=live[x.id];if(!row||!Array.isArray(row.trend)||row.trend.length!==12)return;x.trend=row.trend.map(Number);x.base=(row.base||row.trend).map(Number);x.delta=Number(row.delta)||0;const tPoints=Math.max(0,Math.min(35,Number(row.trend_points)||0));x.evidence[0]=['T','검색 변곡',`${row.geo_label||x.market} Google Trends 자동 수집 · 단기 변화 ${x.delta>=0?'+':''}${x.delta}%`,`${tPoints}/35`];x.score=Math.max(0,Math.min(100,tPoints+nonTrendPoints(x)));x.stage=stageFromScore(x.score);x.source=`Google Trends 자동 수집 ${formatUpdatedAt(row.updated_at)} · 검색어: ${row.query} · 무역·유통 근거는 예시`;updated++});
+  if(!updated)throw new Error('첫 자동 수집 대기 중');liveText.textContent=`Google Trends ${updated}/${items.length}개 최신`;asof.textContent=formatUpdatedAt(payload.updated_at);
+ }catch(error){liveText.textContent='내장 스냅샷 표시';asof.textContent='자동 수집 대기 중'}
+}
 let selected='medicube';
 const rows=document.querySelector('#rows'), search=document.querySelector('#search'), category=document.querySelector('#category'), owner=document.querySelector('#owner'), stage=document.querySelector('#stage');
 const stageClass=s=>s==='확인'?'confirm':s==='관찰'?'watch':s==='레이더'?'radar':'noise';
@@ -137,7 +148,7 @@ function renderRows(){const q=search.value.trim().toLowerCase();const filtered=i
 function chartSvg(x){const W=360,H=122,p=9,all=[...x.trend,...x.base],min=Math.min(...all)-4,max=Math.max(...all)+4,d=max-min;const pts=a=>a.map((v,i)=>[(p+i*(W-2*p)/(a.length-1)),(H-p-(v-min)*(H-2*p)/d)]);const line=a=>pts(a).map((q,i)=>`${i?'L':'M'} ${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(' ');const area=`${line(x.trend)} L ${W-p} ${H-p} L ${p} ${H-p} Z`;return `<defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${x.color}" stop-opacity=".28"/><stop offset="1" stop-color="${x.color}" stop-opacity="0"/></linearGradient></defs><g stroke="#17304a" stroke-width="1">${[0,1,2,3].map(i=>`<line x1="${p}" y1="${p+i*(H-2*p)/3}" x2="${W-p}" y2="${p+i*(H-2*p)/3}"/>`).join('')}</g><path d="${area}" fill="url(#fade)"/><path d="${line(x.base)}" fill="none" stroke="#4d6480" stroke-width="1.4" stroke-dasharray="5 5"/><path d="${line(x.trend)}" fill="none" stroke="${x.color}" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${pts(x.trend).at(-1)[0]}" cy="${pts(x.trend).at(-1)[1]}" r="4" fill="${x.color}" stroke="#07111f" stroke-width="2"/>`}
 function selectItem(id){selected=id;const x=items.find(y=>y.id===id);document.querySelector('#detailCategory').textContent=`${x.category.toUpperCase()} · ${x.market.toUpperCase()} · ${x.ownership}`;document.querySelector('#detailName').textContent=x.name;document.querySelector('#detailCompany').textContent=x.company;document.querySelector('#detailScore').textContent=x.score;document.querySelector('#detailDelta').textContent=`${x.delta>=0?'+':''}${x.delta}%`;document.querySelector('#ring').style.setProperty('--deg',`${x.score*3.6}deg`);document.querySelector('#mainChart').innerHTML=chartSvg(x);document.querySelector('#chain').innerHTML=`<h4>근거 체인</h4>`+x.evidence.map(e=>`<div class="chain-row"><div class="chain-icon">${e[0]}</div><div><h5>${e[1]}</h5><p>${e[2]}</p></div><span class="weight">${e[3]}</span></div>`).join('');document.querySelector('#thesis').textContent=x.thesis;document.querySelector('#source').textContent=x.source;renderRows()}
 [search,category,owner,stage].forEach(el=>el.addEventListener(el.tagName==='INPUT'?'input':'change',renderRows));
-renderRows();selectItem(selected);
+loadLiveTrends().finally(()=>{renderRows();selectItem(selected)});
 </script>
 </body>
 </html>
