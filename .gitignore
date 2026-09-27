@@ -1,4 +1,5 @@
 runtime/
 __pycache__/
 *.pyc
-
+private-data/
+docs/data/trade.json

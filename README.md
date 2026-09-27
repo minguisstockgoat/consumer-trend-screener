@@ -4,9 +4,26 @@ Google Trends의 변곡과 수출입·유통 신호를 결합해 소비재 투�
 
 GitHub Pages는 `main` 브랜치의 `/docs` 폴더를 게시합니다.
 
+좌측 메뉴에서 전체 시그널, 브라우저에 저장되는 관심 브랜드, TRASS 수출 모니터,
+시그널 승격 논리를 전환할 수 있습니다.
+
 ## 자동 갱신
 
 - GitHub Actions가 매일 07:27 KST에 실행됩니다.
 - Google의 호출 제한을 피하기 위해 하루 2개 묶음을 순환 수집하며, 전체 브랜드는 약 6일마다 갱신됩니다.
 - 수집이 실패한 묶음은 마지막 정상 데이터를 그대로 유지합니다.
 - Google Trends 공식 API는 제한된 알파이므로 현재 수집기는 비공식 웹 자동화를 사용합니다.
+
+## TRASS 수출 스냅샷
+
+수출입 모니터는 epic Finance TRASS-BF의 계정 커스텀 그룹 중 소비재 11개를 사용합니다.
+로컬에서 `epic-trass groups --csv`로 받은 CSV를 아래 변환기에 넣어 갱신합니다.
+
+```bash
+python3 scripts/import_trass_snapshot.py /path/to/trass-groups.csv
+```
+
+변환 결과는 Git에서 제외된 `private-data/trade.json`에 저장됩니다. 대시보드의
+`로컬 TRASS 불러오기` 버튼으로 이 파일을 선택하면 데이터가 현재 브라우저의
+로컬 저장소에만 보관됩니다. 파일 내용이나 계정 인증 정보는 GitHub 또는 별도 서버로
+전송되지 않습니다.
