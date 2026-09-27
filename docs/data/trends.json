@@ -2,13 +2,202 @@
   "schema_version": 1,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": null,
-  "next_batch": 0,
-  "items": {},
+  "updated_at": "2026-09-27T08:05:15Z",
+  "next_batch": 2,
+  "items": {
+    "roundlab": {
+      "query": "ROUND LAB skincare",
+      "geo": "US",
+      "geo_label": "미국",
+      "updated_at": "2026-09-27T08:05:15Z",
+      "delta": -31,
+      "trend": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "base": [
+        3,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "trend_points": 11
+    },
+    "anua": {
+      "query": "ANUA skincare",
+      "geo": "US",
+      "geo_label": "미국",
+      "updated_at": "2026-09-27T08:05:15Z",
+      "delta": -11,
+      "trend": [
+        31,
+        20,
+        28,
+        35,
+        27,
+        30,
+        26,
+        35,
+        32,
+        34,
+        33,
+        30
+      ],
+      "base": [
+        31,
+        26,
+        26,
+        28,
+        28,
+        30,
+        30,
+        30,
+        31,
+        32,
+        34,
+        32
+      ],
+      "trend_points": 18
+    },
+    "anuaheart": {
+      "query": "ANUA heartleaf",
+      "geo": "US",
+      "geo_label": "미국",
+      "updated_at": "2026-09-27T08:05:15Z",
+      "delta": -9,
+      "trend": [
+        26,
+        14,
+        7,
+        16,
+        10,
+        6,
+        4,
+        4,
+        18,
+        10,
+        15,
+        13
+      ],
+      "base": [
+        26,
+        20,
+        16,
+        16,
+        12,
+        10,
+        9,
+        6,
+        8,
+        9,
+        12,
+        14
+      ],
+      "trend_points": 35
+    },
+    "melona": {
+      "query": "Melona ice cream",
+      "geo": "US",
+      "geo_label": "미국",
+      "updated_at": "2026-09-27T08:05:15Z",
+      "delta": -19,
+      "trend": [
+        3,
+        3,
+        0,
+        10,
+        6,
+        3,
+        7,
+        17,
+        0,
+        9,
+        12,
+        10
+      ],
+      "base": [
+        3,
+        3,
+        2,
+        4,
+        5,
+        5,
+        6,
+        8,
+        7,
+        8,
+        10,
+        8
+      ],
+      "trend_points": 12
+    },
+    "buldakcarbonara": {
+      "query": "Buldak Carbonara",
+      "geo": "US",
+      "geo_label": "미국",
+      "updated_at": "2026-09-27T08:05:15Z",
+      "delta": -7,
+      "trend": [
+        72,
+        66,
+        71,
+        70,
+        77,
+        69,
+        72,
+        66,
+        69,
+        67,
+        60,
+        57
+      ],
+      "base": [
+        72,
+        69,
+        70,
+        70,
+        71,
+        72,
+        72,
+        71,
+        69,
+        68,
+        66,
+        63
+      ],
+      "trend_points": 13
+    }
+  },
   "last_run": {
-    "status": "waiting_for_first_run",
-    "updated_ids": [],
-    "errors": []
+    "status": "partial",
+    "updated_ids": [
+      "roundlab",
+      "anua",
+      "anuaheart",
+      "melona",
+      "buldakcarbonara"
+    ],
+    "errors": [
+      "batch 0: ValueError: aprilskin: usable trend points not returned"
+    ],
+    "total_batches": 11
   }
 }
-
