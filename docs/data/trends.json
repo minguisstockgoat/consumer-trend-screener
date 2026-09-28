@@ -2,8 +2,8 @@
   "schema_version": 1,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-09-27T08:07:44Z",
-  "next_batch": 4,
+  "updated_at": "2026-09-28T01:01:27Z",
+  "next_batch": 6,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -436,22 +436,126 @@
         1
       ],
       "trend_points": 18
+    },
+    "hetbahn": {
+      "query": "Hetbahn",
+      "geo": "JP",
+      "geo_label": "일본",
+      "updated_at": "2026-09-28T01:00:33Z",
+      "delta": 0,
+      "trend": [
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base": [
+        0,
+        0,
+        0,
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "trend_points": 18
+    },
+    "banana": {
+      "query": "Binggrae banana milk",
+      "geo": "VN",
+      "geo_label": "베트남",
+      "updated_at": "2026-09-28T01:01:27Z",
+      "delta": 0,
+      "trend": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        4,
+        4,
+        4,
+        0
+      ],
+      "trend_points": 0
+    },
+    "chocopie": {
+      "query": "Orion Choco Pie",
+      "geo": "VN",
+      "geo_label": "베트남",
+      "updated_at": "2026-09-28T01:01:27Z",
+      "delta": 0,
+      "trend": [
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "trend_points": 0
     }
   },
   "last_run": {
     "status": "partial",
     "updated_ids": [
-      "shin",
-      "turtlechips",
-      "bibigomandu",
-      "tirtircushion",
-      "tirtir",
-      "innisfree",
-      "jsm"
+      "hetbahn",
+      "banana",
+      "chocopie"
     ],
     "errors": [
-      "batch 3: vt: usable trend points not returned",
-      "batch 3: dalba: usable trend points not returned"
+      "batch 4: homerunball: usable trend points not returned",
+      "batch 5: jinramen: usable trend points not returned"
     ],
     "total_batches": 11
   }
