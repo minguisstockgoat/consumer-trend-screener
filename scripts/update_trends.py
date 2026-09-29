@@ -44,7 +44,7 @@ TRACKED = [
     ("sulwhasoo", "Sulwhasoo", "CN", "중국"),
     ("jungkwanjang", "CheongKwanJang", "CN", "중국"),
     ("milkis", "Milkis", "RU", "러시아"),
-    ("maxim", "Maxim Mocha Gold", "MN", "몽골"),
+    ("maxim", "Maxim Mocha Gold", "", "몽골·글로벌 대용"),
     ("buldak", "Buldak", "", "유럽·글로벌 대용"),
     ("boj", "Beauty of Joseon", "", "유럽·글로벌 대용"),
     ("skin1004", "SKIN1004", "", "유럽·글로벌 대용"),
