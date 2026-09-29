@@ -47,7 +47,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Google Trends 순환 수집
-        run: python scripts/update_trends.py --batches 2
+        run: python scripts/update_trends.py --batches 2 --global-items 2
 
       - name: 변경 데이터 커밋
         run: |

@@ -60,6 +60,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="docs/data/trends.json")
     parser.add_argument("--batches", type=int, default=2)
+    parser.add_argument("--global-items", type=int, default=2)
     parser.add_argument("--pause-seconds", type=int, default=45)
     return parser.parse_args()
 
@@ -143,6 +144,119 @@ def trend_points(values: list[int], delta: int) -> int:
     return max(0, min(35, round(raw)))
 
 
+def json_series(points: list[tuple[datetime, float]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "date": date.isoformat().replace("+00:00", "Z"),
+            "value": max(0, min(100, round(value))),
+        }
+        for date, value in points
+    ]
+
+
+def monthly_series(points: list[tuple[datetime, float]]) -> list[dict[str, Any]]:
+    months: dict[str, list[float]] = defaultdict(list)
+    for date, value in points:
+        months[date.strftime("%Y-%m")].append(value)
+    return [
+        {"date": f"{month}-01T00:00:00Z", "value": round(statistics.mean(values))}
+        for month, values in sorted(months.items())[-60:]
+    ]
+
+
+def change_between(values: list[float], span: int, offset: int = 0) -> int | None:
+    end = len(values) - offset
+    current = values[max(0, end - span) : end]
+    prior = values[max(0, end - span * 2) : max(0, end - span)]
+    if len(current) < span or len(prior) < span:
+        return None
+    current_mean = statistics.mean(current)
+    prior_mean = statistics.mean(prior)
+    if prior_mean <= 0:
+        return 100 if current_mean > 0 else 0
+    return max(-100, min(300, round((current_mean / prior_mean - 1) * 100)))
+
+
+def yearly_change(values: list[float]) -> int | None:
+    if len(values) < 15:
+        return None
+    current = statistics.mean(values[-3:])
+    prior = statistics.mean(values[-15:-12])
+    if prior <= 0:
+        return 100 if current > 0 else 0
+    return max(-100, min(300, round((current / prior - 1) * 100)))
+
+
+def fetch_global_item(
+    item: tuple[str, str, str, str], pause_seconds: int
+) -> dict[str, Any]:
+    from trendspyg import (
+        download_google_trends_explore,
+        download_google_trends_interest_over_time,
+    )
+
+    item_id, query, _, _ = item
+    common = {
+        "geo": "",
+        "cache": "disk",
+        "archive": True,
+        "db_path": "runtime/trendspyg.sqlite3",
+        "cookies": "disk",
+    }
+    year = download_google_trends_explore(query, timeframe="today 12-m", **common)
+    if pause_seconds:
+        time.sleep(pause_seconds)
+    five_year_raw = download_google_trends_interest_over_time(
+        query, timeframe="today 5-y", **common
+    )
+
+    year_points = clean_points(year.get("interest_over_time", []))
+    five_year_points = clean_points(five_year_raw)
+    if len(year_points) < 8 or not any(value for _, value in year_points):
+        raise ValueError(f"{item_id}: usable global trend points not returned")
+
+    regions = []
+    for row in year.get("interest_by_region", []):
+        try:
+            value = int(row.get("value", 0))
+        except (TypeError, ValueError):
+            continue
+        if value <= 0:
+            continue
+        regions.append(
+            {
+                "code": str(row.get("geo_code", ""))[:12],
+                "name": str(row.get("geo_name", ""))[:80],
+                "value": max(0, min(100, value)),
+            }
+        )
+    regions.sort(key=lambda row: row["value"], reverse=True)
+    regions = regions[:25]
+
+    series_12m = json_series(year_points[-60:])
+    series_5y = monthly_series(five_year_points)
+    weekly_values_full = [float(row["value"]) for row in series_12m]
+    monthly_values = [float(row["value"]) for row in series_5y]
+    current = round(statistics.mean(weekly_values_full[-4:]))
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    return {
+        "query": query,
+        "updated_at": now,
+        "series_12m": series_12m,
+        "series_5y": series_5y,
+        "regions": regions,
+        "summary": {
+            "current_index": current,
+            "change_4w_pct": change_between(weekly_values_full, 4),
+            "change_12w_pct": change_between(weekly_values_full, 4, 8),
+            "yoy_pct": yearly_change(monthly_values),
+            "peak_index_12m": round(max(weekly_values_full)),
+            "region_count": len(regions),
+            "top_region": regions[0]["name"] if regions else None,
+        },
+    }
+
+
 def fetch_batch(
     batch: list[tuple[str, str, str, str]],
 ) -> tuple[dict[str, dict[str, Any]], list[str]]:
@@ -213,6 +327,7 @@ def main() -> int:
     count = max(1, min(args.batches, len(batches)))
     chosen = [batches[(start + offset) % len(batches)] for offset in range(count)]
     updated_ids: list[str] = []
+    global_updated_ids: list[str] = []
     errors: list[str] = []
 
     Path("runtime").mkdir(exist_ok=True)
@@ -234,21 +349,48 @@ def main() -> int:
         if index < len(chosen) - 1:
             time.sleep(max(0, args.pause_seconds))
 
-    if not updated_ids:
-        print("No batch succeeded; keeping the previous public snapshot.", file=sys.stderr)
+    global_count = max(0, min(args.global_items, len(TRACKED)))
+    global_start = int(state.get("next_global_item", 0)) % len(TRACKED)
+    global_items = [TRACKED[(global_start + offset) % len(TRACKED)] for offset in range(global_count)]
+    if global_items and chosen:
+        time.sleep(max(0, args.pause_seconds))
+    for index, item in enumerate(global_items):
+        item_id, query, item_geo, geo_label = item
+        try:
+            detail = fetch_global_item(item, max(0, args.pause_seconds))
+            row = state["items"].setdefault(item_id, {})
+            row.setdefault("query", query)
+            row.setdefault("geo", item_geo or "WORLD")
+            row.setdefault("geo_label", geo_label)
+            row["global"] = detail
+            global_updated_ids.append(item_id)
+            print(f"updated global: {item_id}", flush=True)
+        except Exception as exc:
+            message = f"global {item_id}: {type(exc).__name__}: {exc}"
+            errors.append(message)
+            print(message, file=sys.stderr, flush=True)
+            if "RateLimit" in type(exc).__name__ or "429" in str(exc):
+                break
+        if index < len(global_items) - 1:
+            time.sleep(max(0, args.pause_seconds))
+
+    if not updated_ids and not global_updated_ids:
+        print("No collection succeeded; keeping the previous public snapshot.", file=sys.stderr)
         return 1
 
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     state.update(
         {
-            "schema_version": 1,
+            "schema_version": 2,
             "source": "Google Trends Explore",
             "method": "trendspyg browser collector",
             "updated_at": now,
             "next_batch": (start + len(chosen)) % len(batches),
+            "next_global_item": (global_start + len(global_items)) % len(TRACKED),
             "last_run": {
                 "status": "partial" if errors else "success",
                 "updated_ids": updated_ids,
+                "global_updated_ids": global_updated_ids,
                 "errors": errors,
                 "total_batches": len(batches),
             },
@@ -256,7 +398,10 @@ def main() -> int:
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {output_path} ({len(updated_ids)} brands, {len(errors)} errors)")
+    print(
+        f"wrote {output_path} ({len(updated_ids)} signals, "
+        f"{len(global_updated_ids)} global profiles, {len(errors)} errors)"
+    )
     return 0
 
 
