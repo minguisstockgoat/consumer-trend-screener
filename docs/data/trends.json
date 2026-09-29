@@ -2,8 +2,8 @@
   "schema_version": 1,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-09-28T01:01:27Z",
-  "next_batch": 6,
+  "updated_at": "2026-09-29T02:09:50Z",
+  "next_batch": 8,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -544,18 +544,51 @@
         0
       ],
       "trend_points": 0
+    },
+    "milkis": {
+      "query": "Milkis",
+      "geo": "RU",
+      "geo_label": "러시아",
+      "updated_at": "2026-09-29T02:09:50Z",
+      "delta": 300,
+      "trend": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        50,
+        0
+      ],
+      "base": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        15,
+        15
+      ],
+      "trend_points": 35
     }
   },
   "last_run": {
     "status": "partial",
     "updated_ids": [
-      "hetbahn",
-      "banana",
-      "chocopie"
+      "milkis"
     ],
     "errors": [
-      "batch 4: homerunball: usable trend points not returned",
-      "batch 5: jinramen: usable trend points not returned"
+      "batch 6: InvalidParameterError: Invalid geo code 'CN'. Did you mean one of: CM, CA, CL, CO, CD?\n\nAvailable: 125 countries (US, CA, UK, DE, FR, ...) or 51 US states (CA, NY, TX, FL, ...)\n\nSee trendspyg.config.COUNTRIES and trendspyg.config.US_STATES for full list."
     ],
     "total_batches": 11
   }
