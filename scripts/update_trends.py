@@ -62,6 +62,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batches", type=int, default=2)
     parser.add_argument("--global-items", type=int, default=2)
     parser.add_argument("--pause-seconds", type=int, default=45)
+    parser.add_argument(
+        "--browser-visible",
+        action="store_true",
+        help="Use a visible Chrome window (more reliable on the Mac mini).",
+    )
     return parser.parse_args()
 
 
@@ -188,7 +193,7 @@ def yearly_change(values: list[float]) -> int | None:
 
 
 def fetch_global_item(
-    item: tuple[str, str, str, str], pause_seconds: int
+    item: tuple[str, str, str, str], pause_seconds: int, headless: bool = True
 ) -> dict[str, Any]:
     from trendspyg import (
         download_google_trends_explore,
@@ -202,8 +207,15 @@ def fetch_global_item(
         "archive": True,
         "db_path": "runtime/trendspyg.sqlite3",
         "cookies": "disk",
+        "headless": headless,
     }
-    year = download_google_trends_explore(query, timeframe="today 12-m", **common)
+    year = download_google_trends_explore(
+        query,
+        timeframe="today 12-m",
+        include_related=False,
+        include_geo=True,
+        **common,
+    )
     if pause_seconds:
         time.sleep(pause_seconds)
     five_year_raw = download_google_trends_interest_over_time(
@@ -324,7 +336,7 @@ def main() -> int:
     state.setdefault("items", {})
     batches = build_batches()
     start = int(state.get("next_batch", 0)) % len(batches)
-    count = max(1, min(args.batches, len(batches)))
+    count = max(0, min(args.batches, len(batches)))
     chosen = [batches[(start + offset) % len(batches)] for offset in range(count)]
     updated_ids: list[str] = []
     global_updated_ids: list[str] = []
@@ -336,7 +348,10 @@ def main() -> int:
     for index, batch in enumerate(chosen):
         try:
             updates, skipped = fetch_batch(batch)
-            state["items"].update(updates)
+            for item_id, update in updates.items():
+                # Keep the separately collected global profile when the shorter
+                # country signal for the same item is refreshed.
+                state["items"].setdefault(item_id, {}).update(update)
             updated_ids.extend(updates)
             errors.extend(f"batch {start + index}: {message}" for message in skipped)
             print(f"updated: {', '.join(updates)}", flush=True)
@@ -351,19 +366,32 @@ def main() -> int:
 
     global_count = max(0, min(args.global_items, len(TRACKED)))
     global_start = int(state.get("next_global_item", 0)) % len(TRACKED)
-    global_items = [TRACKED[(global_start + offset) % len(TRACKED)] for offset in range(global_count)]
+    global_order = [
+        TRACKED[(global_start + offset) % len(TRACKED)] for offset in range(len(TRACKED))
+    ]
+    missing_global = [
+        item for item in global_order if not state["items"].get(item[0], {}).get("global")
+    ]
+    existing_global = [item for item in global_order if item not in missing_global]
+    global_items = (missing_global + existing_global)[:global_count]
+    next_global_item = global_start
     if global_items and chosen:
         time.sleep(max(0, args.pause_seconds))
     for index, item in enumerate(global_items):
         item_id, query, item_geo, geo_label = item
         try:
-            detail = fetch_global_item(item, max(0, args.pause_seconds))
+            detail = fetch_global_item(
+                item,
+                max(0, args.pause_seconds),
+                headless=not args.browser_visible,
+            )
             row = state["items"].setdefault(item_id, {})
             row.setdefault("query", query)
             row.setdefault("geo", item_geo or "WORLD")
             row.setdefault("geo_label", geo_label)
             row["global"] = detail
             global_updated_ids.append(item_id)
+            next_global_item = (TRACKED.index(item) + 1) % len(TRACKED)
             print(f"updated global: {item_id}", flush=True)
         except Exception as exc:
             message = f"global {item_id}: {type(exc).__name__}: {exc}"
@@ -386,7 +414,7 @@ def main() -> int:
             "method": "trendspyg browser collector",
             "updated_at": now,
             "next_batch": (start + len(chosen)) % len(batches),
-            "next_global_item": (global_start + len(global_items)) % len(TRACKED),
+            "next_global_item": next_global_item,
             "last_run": {
                 "status": "partial" if errors else "success",
                 "updated_ids": updated_ids,
