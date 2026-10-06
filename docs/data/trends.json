@@ -2,8 +2,8 @@
   "schema_version": 2,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-10-06T04:33:53Z",
-  "next_batch": 8,
+  "updated_at": "2026-10-06T04:37:06Z",
+  "next_batch": 0,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -7286,7 +7286,7 @@
       "query": "Milkis",
       "geo": "RU",
       "geo_label": "러시아",
-      "updated_at": "2026-10-06T04:30:22Z",
+      "updated_at": "2026-10-06T04:36:11Z",
       "delta": -70,
       "trend": [
         0,
@@ -11280,37 +11280,37 @@
       "query": "Pepero",
       "geo": "WORLD",
       "geo_label": "동남아·글로벌 대용",
-      "updated_at": "2026-10-03T01:18:20Z",
-      "delta": 3,
+      "updated_at": "2026-10-06T04:35:26Z",
+      "delta": 4,
       "trend": [
-        44,
-        54,
-        55,
-        67,
         60,
-        57,
-        66,
-        63,
-        72,
-        63,
         61,
-        60
-      ],
-      "base": [
-        44,
-        49,
-        51,
-        55,
-        59,
-        60,
-        62,
-        62,
-        64,
+        69,
+        65,
         66,
         65,
-        64
+        64,
+        78,
+        60,
+        57,
+        68,
+        62
       ],
-      "trend_points": 19
+      "base": [
+        60,
+        60,
+        63,
+        64,
+        65,
+        66,
+        65,
+        68,
+        67,
+        65,
+        66,
+        62
+      ],
+      "trend_points": 16
     },
     "jinramen": {
       "query": "Jin Ramen",
@@ -12320,14 +12320,12 @@
   "last_run": {
     "status": "partial",
     "updated_ids": [
+      "pepero",
       "milkis"
     ],
-    "global_updated_ids": [
-      "homerunball",
-      "banana"
-    ],
+    "global_updated_ids": [],
     "errors": [
-      "batch 6: InvalidParameterError: Invalid geo code 'CN'. Did you mean one of: CM, CA, CL, CO, CD?\n\nAvailable: 125 countries (US, CA, UK, DE, FR, ...) or 51 US states (CA, NY, TX, FL, ...)\n\nSee trendspyg.config.COUNTRIES and trendspyg.config.US_STATES for full list."
+      "global jinramen: RateLimitError: Google rate-limited the Explore data request; stop and back off."
     ],
     "total_batches": 10
   },
