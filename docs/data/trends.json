@@ -2,8 +2,8 @@
   "schema_version": 2,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-10-08T02:13:10Z",
-  "next_batch": 4,
+  "updated_at": "2026-10-09T02:27:02Z",
+  "next_batch": 6,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -6722,17 +6722,17 @@
       "query": "Binggrae banana milk",
       "geo": "VN",
       "geo_label": "베트남",
-      "updated_at": "2026-09-28T01:01:27Z",
+      "updated_at": "2026-10-09T02:25:16Z",
       "delta": 0,
       "trend": [
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
         14,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -6741,18 +6741,18 @@
       "base": [
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        5,
         4,
         4,
         4,
-        4,
+        0,
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "trend_points": 0,
+      "trend_points": 18,
       "global": {
         "query": "Binggrae banana milk",
         "updated_at": "2026-10-06T04:33:53Z",
@@ -11828,12 +11828,11 @@
       "query": "Jin Ramen",
       "geo": "VN",
       "geo_label": "베트남",
-      "updated_at": "2026-10-06T02:24:13Z",
-      "delta": 0,
+      "updated_at": "2026-10-09T02:25:16Z",
+      "delta": -100,
       "trend": [
         0,
         0,
-        14,
         0,
         0,
         0,
@@ -11842,15 +11841,16 @@
         0,
         0,
         0,
+        1,
         0
       ],
       "base": [
         0,
         0,
-        5,
-        4,
-        4,
-        4,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -11858,7 +11858,7 @@
         0,
         0
       ],
-      "trend_points": 18,
+      "trend_points": 0,
       "global": {
         "query": "Jin Ramen",
         "updated_at": "2026-10-07T01:45:25Z",
@@ -13424,14 +13424,13 @@
   "last_run": {
     "status": "partial",
     "updated_ids": [
-      "shin",
-      "turtlechips",
-      "bibigomandu",
-      "tirtircushion"
+      "banana",
+      "jinramen"
     ],
     "global_updated_ids": [],
     "errors": [
-      "batch 3: RateLimitError: Google rate-limited the Explore data request; stop and back off.",
+      "batch 4: BrowserError: Explore browser time budget exhausted; no further requests were made.",
+      "batch 5: chocopie: usable trend points not returned",
       "global sulwhasoo: RateLimitError: Google rate-limited the Explore data request; stop and back off."
     ],
     "total_batches": 10
