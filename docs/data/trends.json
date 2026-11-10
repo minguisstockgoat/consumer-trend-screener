@@ -2,8 +2,8 @@
   "schema_version": 2,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-11-09T01:54:15Z",
-  "next_batch": 8,
+  "updated_at": "2026-11-10T04:18:35Z",
+  "next_batch": 0,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -8991,8 +8991,8 @@
       "query": "Milkis",
       "geo": "RU",
       "geo_label": "러시아",
-      "updated_at": "2026-11-05T02:39:58Z",
-      "delta": 37,
+      "updated_at": "2026-11-10T04:15:04Z",
+      "delta": 20,
       "trend": [
         0,
         0,
@@ -9003,8 +9003,8 @@
         0,
         0,
         0,
-        0,
-        25,
+        29,
+        35,
         0
       ],
       "base": [
@@ -9017,42 +9017,30 @@
         0,
         0,
         0,
-        0,
-        6,
-        6
+        7,
+        16,
+        16
       ],
-      "trend_points": 26,
+      "trend_points": 22,
       "global": {
         "query": "Milkis",
-        "updated_at": "2026-10-23T00:50:15Z",
+        "updated_at": "2026-11-10T04:16:49Z",
         "series_12m": [
           {
-            "date": "2025-10-19T00:00:00Z",
-            "value": 82
-          },
-          {
-            "date": "2025-10-26T00:00:00Z",
-            "value": 84
-          },
-          {
-            "date": "2025-11-02T00:00:00Z",
-            "value": 70
-          },
-          {
             "date": "2025-11-09T00:00:00Z",
-            "value": 92
+            "value": 88
           },
           {
             "date": "2025-11-16T00:00:00Z",
-            "value": 79
+            "value": 74
           },
           {
             "date": "2025-11-23T00:00:00Z",
-            "value": 75
+            "value": 73
           },
           {
             "date": "2025-11-30T00:00:00Z",
-            "value": 87
+            "value": 89
           },
           {
             "date": "2025-12-07T00:00:00Z",
@@ -9060,7 +9048,7 @@
           },
           {
             "date": "2025-12-14T00:00:00Z",
-            "value": 84
+            "value": 82
           },
           {
             "date": "2025-12-21T00:00:00Z",
@@ -9068,11 +9056,11 @@
           },
           {
             "date": "2025-12-28T00:00:00Z",
-            "value": 91
+            "value": 90
           },
           {
             "date": "2026-01-04T00:00:00Z",
-            "value": 79
+            "value": 74
           },
           {
             "date": "2026-01-11T00:00:00Z",
@@ -9084,7 +9072,7 @@
           },
           {
             "date": "2026-01-25T00:00:00Z",
-            "value": 100
+            "value": 98
           },
           {
             "date": "2026-02-01T00:00:00Z",
@@ -9092,7 +9080,7 @@
           },
           {
             "date": "2026-02-08T00:00:00Z",
-            "value": 90
+            "value": 91
           },
           {
             "date": "2026-02-15T00:00:00Z",
@@ -9100,11 +9088,11 @@
           },
           {
             "date": "2026-02-22T00:00:00Z",
-            "value": 87
+            "value": 86
           },
           {
             "date": "2026-03-01T00:00:00Z",
-            "value": 83
+            "value": 82
           },
           {
             "date": "2026-03-08T00:00:00Z",
@@ -9112,31 +9100,31 @@
           },
           {
             "date": "2026-03-15T00:00:00Z",
-            "value": 80
+            "value": 78
           },
           {
             "date": "2026-03-22T00:00:00Z",
-            "value": 92
+            "value": 90
           },
           {
             "date": "2026-03-29T00:00:00Z",
-            "value": 85
+            "value": 82
           },
           {
             "date": "2026-04-05T00:00:00Z",
-            "value": 80
+            "value": 81
           },
           {
             "date": "2026-04-12T00:00:00Z",
-            "value": 93
+            "value": 90
           },
           {
             "date": "2026-04-19T00:00:00Z",
-            "value": 94
+            "value": 93
           },
           {
             "date": "2026-04-26T00:00:00Z",
-            "value": 76
+            "value": 77
           },
           {
             "date": "2026-05-03T00:00:00Z",
@@ -9144,19 +9132,19 @@
           },
           {
             "date": "2026-05-10T00:00:00Z",
-            "value": 87
+            "value": 85
           },
           {
             "date": "2026-05-17T00:00:00Z",
-            "value": 90
+            "value": 88
           },
           {
             "date": "2026-05-24T00:00:00Z",
-            "value": 87
+            "value": 92
           },
           {
             "date": "2026-05-31T00:00:00Z",
-            "value": 78
+            "value": 79
           },
           {
             "date": "2026-06-07T00:00:00Z",
@@ -9164,19 +9152,19 @@
           },
           {
             "date": "2026-06-14T00:00:00Z",
-            "value": 89
+            "value": 88
           },
           {
             "date": "2026-06-21T00:00:00Z",
-            "value": 82
+            "value": 85
           },
           {
             "date": "2026-06-28T00:00:00Z",
-            "value": 72
+            "value": 74
           },
           {
             "date": "2026-07-05T00:00:00Z",
-            "value": 92
+            "value": 91
           },
           {
             "date": "2026-07-12T00:00:00Z",
@@ -9184,11 +9172,11 @@
           },
           {
             "date": "2026-07-19T00:00:00Z",
-            "value": 97
+            "value": 100
           },
           {
             "date": "2026-07-26T00:00:00Z",
-            "value": 90
+            "value": 91
           },
           {
             "date": "2026-08-02T00:00:00Z",
@@ -9196,11 +9184,11 @@
           },
           {
             "date": "2026-08-09T00:00:00Z",
-            "value": 86
+            "value": 87
           },
           {
             "date": "2026-08-16T00:00:00Z",
-            "value": 86
+            "value": 83
           },
           {
             "date": "2026-08-23T00:00:00Z",
@@ -9208,11 +9196,11 @@
           },
           {
             "date": "2026-08-30T00:00:00Z",
-            "value": 81
+            "value": 80
           },
           {
             "date": "2026-09-06T00:00:00Z",
-            "value": 73
+            "value": 72
           },
           {
             "date": "2026-09-13T00:00:00Z",
@@ -9220,29 +9208,37 @@
           },
           {
             "date": "2026-09-20T00:00:00Z",
-            "value": 74
+            "value": 77
           },
           {
             "date": "2026-09-27T00:00:00Z",
-            "value": 64
+            "value": 68
           },
           {
             "date": "2026-10-04T00:00:00Z",
-            "value": 73
+            "value": 79
           },
           {
             "date": "2026-10-11T00:00:00Z",
-            "value": 78
+            "value": 83
+          },
+          {
+            "date": "2026-10-18T00:00:00Z",
+            "value": 71
+          },
+          {
+            "date": "2026-10-25T00:00:00Z",
+            "value": 73
+          },
+          {
+            "date": "2026-11-01T00:00:00Z",
+            "value": 75
           }
         ],
         "series_5y": [
           {
-            "date": "2021-11-01T00:00:00Z",
-            "value": 39
-          },
-          {
             "date": "2021-12-01T00:00:00Z",
-            "value": 38
+            "value": 36
           },
           {
             "date": "2022-01-01T00:00:00Z",
@@ -9250,15 +9246,15 @@
           },
           {
             "date": "2022-02-01T00:00:00Z",
-            "value": 42
+            "value": 40
           },
           {
             "date": "2022-03-01T00:00:00Z",
-            "value": 47
+            "value": 46
           },
           {
             "date": "2022-04-01T00:00:00Z",
-            "value": 47
+            "value": 45
           },
           {
             "date": "2022-05-01T00:00:00Z",
@@ -9274,27 +9270,27 @@
           },
           {
             "date": "2022-08-01T00:00:00Z",
-            "value": 47
-          },
-          {
-            "date": "2022-09-01T00:00:00Z",
-            "value": 48
-          },
-          {
-            "date": "2022-10-01T00:00:00Z",
             "value": 46
           },
           {
+            "date": "2022-09-01T00:00:00Z",
+            "value": 47
+          },
+          {
+            "date": "2022-10-01T00:00:00Z",
+            "value": 45
+          },
+          {
             "date": "2022-11-01T00:00:00Z",
-            "value": 42
+            "value": 41
           },
           {
             "date": "2022-12-01T00:00:00Z",
-            "value": 60
+            "value": 59
           },
           {
             "date": "2023-01-01T00:00:00Z",
-            "value": 53
+            "value": 52
           },
           {
             "date": "2023-02-01T00:00:00Z",
@@ -9306,11 +9302,11 @@
           },
           {
             "date": "2023-04-01T00:00:00Z",
-            "value": 50
+            "value": 49
           },
           {
             "date": "2023-05-01T00:00:00Z",
-            "value": 54
+            "value": 55
           },
           {
             "date": "2023-06-01T00:00:00Z",
@@ -9322,7 +9318,7 @@
           },
           {
             "date": "2023-08-01T00:00:00Z",
-            "value": 63
+            "value": 64
           },
           {
             "date": "2023-09-01T00:00:00Z",
@@ -9330,7 +9326,7 @@
           },
           {
             "date": "2023-10-01T00:00:00Z",
-            "value": 54
+            "value": 55
           },
           {
             "date": "2023-11-01T00:00:00Z",
@@ -9342,23 +9338,23 @@
           },
           {
             "date": "2024-01-01T00:00:00Z",
-            "value": 61
+            "value": 60
           },
           {
             "date": "2024-02-01T00:00:00Z",
-            "value": 59
+            "value": 60
           },
           {
             "date": "2024-03-01T00:00:00Z",
-            "value": 65
+            "value": 64
           },
           {
             "date": "2024-04-01T00:00:00Z",
-            "value": 62
+            "value": 60
           },
           {
             "date": "2024-05-01T00:00:00Z",
-            "value": 64
+            "value": 63
           },
           {
             "date": "2024-06-01T00:00:00Z",
@@ -9366,11 +9362,11 @@
           },
           {
             "date": "2024-07-01T00:00:00Z",
-            "value": 74
+            "value": 72
           },
           {
             "date": "2024-08-01T00:00:00Z",
-            "value": 73
+            "value": 71
           },
           {
             "date": "2024-09-01T00:00:00Z",
@@ -9378,7 +9374,7 @@
           },
           {
             "date": "2024-10-01T00:00:00Z",
-            "value": 83
+            "value": 82
           },
           {
             "date": "2024-11-01T00:00:00Z",
@@ -9386,7 +9382,7 @@
           },
           {
             "date": "2024-12-01T00:00:00Z",
-            "value": 68
+            "value": 66
           },
           {
             "date": "2025-01-01T00:00:00Z",
@@ -9402,19 +9398,19 @@
           },
           {
             "date": "2025-04-01T00:00:00Z",
-            "value": 71
+            "value": 70
           },
           {
             "date": "2025-05-01T00:00:00Z",
-            "value": 74
+            "value": 75
           },
           {
             "date": "2025-06-01T00:00:00Z",
-            "value": 72
+            "value": 71
           },
           {
             "date": "2025-07-01T00:00:00Z",
-            "value": 80
+            "value": 77
           },
           {
             "date": "2025-08-01T00:00:00Z",
@@ -9426,19 +9422,19 @@
           },
           {
             "date": "2025-10-01T00:00:00Z",
-            "value": 66
+            "value": 67
           },
           {
             "date": "2025-11-01T00:00:00Z",
-            "value": 65
+            "value": 63
           },
           {
             "date": "2025-12-01T00:00:00Z",
-            "value": 69
+            "value": 68
           },
           {
             "date": "2026-01-01T00:00:00Z",
-            "value": 68
+            "value": 66
           },
           {
             "date": "2026-02-01T00:00:00Z",
@@ -9446,11 +9442,11 @@
           },
           {
             "date": "2026-03-01T00:00:00Z",
-            "value": 69
+            "value": 67
           },
           {
             "date": "2026-04-01T00:00:00Z",
-            "value": 69
+            "value": 68
           },
           {
             "date": "2026-05-01T00:00:00Z",
@@ -9462,7 +9458,7 @@
           },
           {
             "date": "2026-07-01T00:00:00Z",
-            "value": 74
+            "value": 73
           },
           {
             "date": "2026-08-01T00:00:00Z",
@@ -9470,148 +9466,152 @@
           },
           {
             "date": "2026-09-01T00:00:00Z",
-            "value": 55
+            "value": 56
           },
           {
             "date": "2026-10-01T00:00:00Z",
             "value": 61
+          },
+          {
+            "date": "2026-11-01T00:00:00Z",
+            "value": 60
           }
         ],
         "regions": [
-          {
-            "code": "PH",
-            "name": "Philippines",
-            "value": 100
-          },
           {
             "code": "MN",
             "name": "Mongolia",
             "value": 100
           },
           {
-            "code": "SG",
-            "name": "Singapore",
-            "value": 65
+            "code": "PH",
+            "name": "Philippines",
+            "value": 96
           },
           {
-            "code": "EE",
-            "name": "Estonia",
-            "value": 50
+            "code": "SG",
+            "name": "Singapore",
+            "value": 59
           },
           {
             "code": "AU",
             "name": "Australia",
-            "value": 50
+            "value": 48
           },
           {
             "code": "CA",
             "name": "Canada",
-            "value": 46
+            "value": 44
           },
           {
             "code": "HK",
             "name": "Hong Kong",
-            "value": 46
+            "value": 40
           },
           {
             "code": "KH",
             "name": "Cambodia",
-            "value": 34
+            "value": 37
           },
           {
             "code": "UA",
             "name": "Ukraine",
-            "value": 34
+            "value": 33
           },
           {
             "code": "MY",
             "name": "Malaysia",
-            "value": 34
+            "value": 33
           },
           {
             "code": "NZ",
             "name": "New Zealand",
-            "value": 30
+            "value": 29
           },
           {
             "code": "PE",
             "name": "Peru",
-            "value": 26
-          },
-          {
-            "code": "KR",
-            "name": "South Korea",
-            "value": 26
-          },
-          {
-            "code": "NL",
-            "name": "Netherlands",
-            "value": 26
+            "value": 25
           },
           {
             "code": "LT",
             "name": "Lithuania",
-            "value": 23
+            "value": 25
+          },
+          {
+            "code": "KR",
+            "name": "South Korea",
+            "value": 25
+          },
+          {
+            "code": "NL",
+            "name": "Netherlands",
+            "value": 25
           },
           {
             "code": "GB",
             "name": "United Kingdom",
-            "value": 23
-          },
-          {
-            "code": "US",
-            "name": "United States",
-            "value": 23
+            "value": 22
           },
           {
             "code": "NO",
             "name": "Norway",
-            "value": 19
+            "value": 22
+          },
+          {
+            "code": "US",
+            "name": "United States",
+            "value": 18
           },
           {
             "code": "RU",
             "name": "Russia",
-            "value": 19
-          },
-          {
-            "code": "SE",
-            "name": "Sweden",
-            "value": 19
-          },
-          {
-            "code": "BO",
-            "name": "Bolivia",
-            "value": 19
-          },
-          {
-            "code": "TW",
-            "name": "Taiwan",
-            "value": 15
+            "value": 18
           },
           {
             "code": "FI",
             "name": "Finland",
-            "value": 15
+            "value": 18
           },
           {
             "code": "BG",
             "name": "Bulgaria",
-            "value": 15
+            "value": 18
           },
           {
-            "code": "GT",
-            "name": "Guatemala",
-            "value": 15
+            "code": "SE",
+            "name": "Sweden",
+            "value": 18
+          },
+          {
+            "code": "TW",
+            "name": "Taiwan",
+            "value": 14
+          },
+          {
+            "code": "BO",
+            "name": "Bolivia",
+            "value": 14
+          },
+          {
+            "code": "ID",
+            "name": "Indonesia",
+            "value": 14
+          },
+          {
+            "code": "AE",
+            "name": "United Arab Emirates",
+            "value": 14
           }
         ],
         "summary": {
-          "current_index": 72,
-          "change_4w_pct": -2,
-          "change_12w_pct": -1,
-          "yoy_pct": -15,
+          "current_index": 76,
+          "change_4w_pct": 6,
+          "change_12w_pct": -13,
+          "yoy_pct": -12,
           "peak_index_12m": 100,
           "region_count": 25,
-          "top_region": "Philippines"
+          "top_region": "Mongolia"
         }
       }
     },
@@ -17654,37 +17654,37 @@
       "query": "Pepero",
       "geo": "WORLD",
       "geo_label": "동남아·글로벌 대용",
-      "updated_at": "2026-11-05T02:39:09Z",
-      "delta": 29,
+      "updated_at": "2026-11-10T04:14:13Z",
+      "delta": 66,
       "trend": [
-        50,
-        53,
-        55,
-        59,
-        48,
-        43,
-        54,
-        57,
-        65,
-        59,
-        63,
-        87
+        23,
+        24,
+        28,
+        29,
+        21,
+        24,
+        27,
+        28,
+        26,
+        29,
+        46,
+        65
       ],
       "base": [
-        50,
-        52,
-        53,
-        54,
-        54,
-        51,
-        51,
-        50,
-        55,
-        59,
-        61,
-        68
+        23,
+        24,
+        25,
+        26,
+        26,
+        26,
+        25,
+        25,
+        26,
+        28,
+        32,
+        42
       ],
-      "trend_points": 34,
+      "trend_points": 35,
       "global": {
         "query": "Pepero",
         "updated_at": "2026-10-27T01:38:27Z",
@@ -21030,23 +21030,11 @@
       "geo_label": "몽골·글로벌 대용",
       "global": {
         "query": "Maxim Mocha Gold",
-        "updated_at": "2026-10-23T00:52:00Z",
+        "updated_at": "2026-11-10T04:18:35Z",
         "series_12m": [
           {
-            "date": "2025-10-19T00:00:00Z",
-            "value": 0
-          },
-          {
-            "date": "2025-10-26T00:00:00Z",
-            "value": 0
-          },
-          {
-            "date": "2025-11-02T00:00:00Z",
-            "value": 0
-          },
-          {
             "date": "2025-11-09T00:00:00Z",
-            "value": 55
+            "value": 61
           },
           {
             "date": "2025-11-16T00:00:00Z",
@@ -21054,19 +21042,19 @@
           },
           {
             "date": "2025-11-23T00:00:00Z",
-            "value": 71
+            "value": 47
           },
           {
             "date": "2025-11-30T00:00:00Z",
-            "value": 0
+            "value": 55
           },
           {
             "date": "2025-12-07T00:00:00Z",
-            "value": 75
+            "value": 50
           },
           {
             "date": "2025-12-14T00:00:00Z",
-            "value": 0
+            "value": 49
           },
           {
             "date": "2025-12-21T00:00:00Z",
@@ -21078,27 +21066,27 @@
           },
           {
             "date": "2026-01-04T00:00:00Z",
-            "value": 54
+            "value": 0
           },
           {
             "date": "2026-01-11T00:00:00Z",
-            "value": 49
+            "value": 0
           },
           {
             "date": "2026-01-18T00:00:00Z",
-            "value": 51
+            "value": 49
           },
           {
             "date": "2026-01-25T00:00:00Z",
-            "value": 47
+            "value": 0
           },
           {
             "date": "2026-02-01T00:00:00Z",
-            "value": 54
+            "value": 47
           },
           {
             "date": "2026-02-08T00:00:00Z",
-            "value": 62
+            "value": 45
           },
           {
             "date": "2026-02-15T00:00:00Z",
@@ -21106,79 +21094,79 @@
           },
           {
             "date": "2026-02-22T00:00:00Z",
-            "value": 55
+            "value": 39
           },
           {
             "date": "2026-03-01T00:00:00Z",
-            "value": 50
+            "value": 44
           },
           {
             "date": "2026-03-08T00:00:00Z",
-            "value": 58
+            "value": 41
           },
           {
             "date": "2026-03-15T00:00:00Z",
-            "value": 55
+            "value": 52
           },
           {
             "date": "2026-03-22T00:00:00Z",
-            "value": 73
-          },
-          {
-            "date": "2026-03-29T00:00:00Z",
-            "value": 82
-          },
-          {
-            "date": "2026-04-05T00:00:00Z",
-            "value": 64
-          },
-          {
-            "date": "2026-04-12T00:00:00Z",
-            "value": 100
-          },
-          {
-            "date": "2026-04-19T00:00:00Z",
-            "value": 0
-          },
-          {
-            "date": "2026-04-26T00:00:00Z",
-            "value": 55
-          },
-          {
-            "date": "2026-05-03T00:00:00Z",
-            "value": 91
-          },
-          {
-            "date": "2026-05-10T00:00:00Z",
-            "value": 77
-          },
-          {
-            "date": "2026-05-17T00:00:00Z",
-            "value": 72
-          },
-          {
-            "date": "2026-05-24T00:00:00Z",
-            "value": 0
-          },
-          {
-            "date": "2026-05-31T00:00:00Z",
-            "value": 48
-          },
-          {
-            "date": "2026-06-07T00:00:00Z",
             "value": 69
           },
           {
+            "date": "2026-03-29T00:00:00Z",
+            "value": 43
+          },
+          {
+            "date": "2026-04-05T00:00:00Z",
+            "value": 73
+          },
+          {
+            "date": "2026-04-12T00:00:00Z",
+            "value": 87
+          },
+          {
+            "date": "2026-04-19T00:00:00Z",
+            "value": 70
+          },
+          {
+            "date": "2026-04-26T00:00:00Z",
+            "value": 47
+          },
+          {
+            "date": "2026-05-03T00:00:00Z",
+            "value": 64
+          },
+          {
+            "date": "2026-05-10T00:00:00Z",
+            "value": 100
+          },
+          {
+            "date": "2026-05-17T00:00:00Z",
+            "value": 69
+          },
+          {
+            "date": "2026-05-24T00:00:00Z",
+            "value": 41
+          },
+          {
+            "date": "2026-05-31T00:00:00Z",
+            "value": 0
+          },
+          {
+            "date": "2026-06-07T00:00:00Z",
+            "value": 60
+          },
+          {
             "date": "2026-06-14T00:00:00Z",
-            "value": 80
+            "value": 59
           },
           {
             "date": "2026-06-21T00:00:00Z",
-            "value": 56
+            "value": 65
           },
           {
             "date": "2026-06-28T00:00:00Z",
-            "value": 60
+            "value": 0
           },
           {
             "date": "2026-07-05T00:00:00Z",
@@ -21186,19 +21174,19 @@
           },
           {
             "date": "2026-07-12T00:00:00Z",
-            "value": 53
+            "value": 46
           },
           {
             "date": "2026-07-19T00:00:00Z",
-            "value": 74
-          },
-          {
-            "date": "2026-07-26T00:00:00Z",
             "value": 0
           },
           {
+            "date": "2026-07-26T00:00:00Z",
+            "value": 42
+          },
+          {
             "date": "2026-08-02T00:00:00Z",
-            "value": 47
+            "value": 0
           },
           {
             "date": "2026-08-09T00:00:00Z",
@@ -21214,11 +21202,11 @@
           },
           {
             "date": "2026-08-30T00:00:00Z",
-            "value": 68
+            "value": 0
           },
           {
             "date": "2026-09-06T00:00:00Z",
-            "value": 43
+            "value": 0
           },
           {
             "date": "2026-09-13T00:00:00Z",
@@ -21226,26 +21214,34 @@
           },
           {
             "date": "2026-09-20T00:00:00Z",
-            "value": 66
+            "value": 0
           },
           {
             "date": "2026-09-27T00:00:00Z",
-            "value": 45
+            "value": 0
           },
           {
             "date": "2026-10-04T00:00:00Z",
-            "value": 7
+            "value": 0
           },
           {
             "date": "2026-10-11T00:00:00Z",
-            "value": 31
+            "value": 0
+          },
+          {
+            "date": "2026-10-18T00:00:00Z",
+            "value": 0
+          },
+          {
+            "date": "2026-10-25T00:00:00Z",
+            "value": 17
+          },
+          {
+            "date": "2026-11-01T00:00:00Z",
+            "value": 22
           }
         ],
         "series_5y": [
-          {
-            "date": "2021-11-01T00:00:00Z",
-            "value": 0
-          },
           {
             "date": "2021-12-01T00:00:00Z",
             "value": 0
@@ -21256,15 +21252,15 @@
           },
           {
             "date": "2022-02-01T00:00:00Z",
-            "value": 0
+            "value": 10
           },
           {
             "date": "2022-03-01T00:00:00Z",
-            "value": 12
+            "value": 0
           },
           {
             "date": "2022-04-01T00:00:00Z",
-            "value": 0
+            "value": 8
           },
           {
             "date": "2022-05-01T00:00:00Z",
@@ -21276,11 +21272,11 @@
           },
           {
             "date": "2022-07-01T00:00:00Z",
-            "value": 18
+            "value": 0
           },
           {
             "date": "2022-08-01T00:00:00Z",
-            "value": 10
+            "value": 0
           },
           {
             "date": "2022-09-01T00:00:00Z",
@@ -21304,7 +21300,7 @@
           },
           {
             "date": "2023-02-01T00:00:00Z",
-            "value": 0
+            "value": 9
           },
           {
             "date": "2023-03-01T00:00:00Z",
@@ -21312,7 +21308,7 @@
           },
           {
             "date": "2023-04-01T00:00:00Z",
-            "value": 10
+            "value": 0
           },
           {
             "date": "2023-05-01T00:00:00Z",
@@ -21320,11 +21316,11 @@
           },
           {
             "date": "2023-06-01T00:00:00Z",
-            "value": 0
+            "value": 11
           },
           {
             "date": "2023-07-01T00:00:00Z",
-            "value": 10
+            "value": 9
           },
           {
             "date": "2023-08-01T00:00:00Z",
@@ -21332,7 +21328,7 @@
           },
           {
             "date": "2023-09-01T00:00:00Z",
-            "value": 10
+            "value": 0
           },
           {
             "date": "2023-10-01T00:00:00Z",
@@ -21344,15 +21340,15 @@
           },
           {
             "date": "2023-12-01T00:00:00Z",
-            "value": 10
+            "value": 0
           },
           {
             "date": "2024-01-01T00:00:00Z",
-            "value": 0
+            "value": 21
           },
           {
             "date": "2024-02-01T00:00:00Z",
-            "value": 0
+            "value": 10
           },
           {
             "date": "2024-03-01T00:00:00Z",
@@ -21372,7 +21368,7 @@
           },
           {
             "date": "2024-07-01T00:00:00Z",
-            "value": 0
+            "value": 12
           },
           {
             "date": "2024-08-01T00:00:00Z",
@@ -21380,7 +21376,7 @@
           },
           {
             "date": "2024-09-01T00:00:00Z",
-            "value": 13
+            "value": 10
           },
           {
             "date": "2024-10-01T00:00:00Z",
@@ -21388,7 +21384,7 @@
           },
           {
             "date": "2024-11-01T00:00:00Z",
-            "value": 12
+            "value": 14
           },
           {
             "date": "2024-12-01T00:00:00Z",
@@ -21400,7 +21396,7 @@
           },
           {
             "date": "2025-02-01T00:00:00Z",
-            "value": 26
+            "value": 11
           },
           {
             "date": "2025-03-01T00:00:00Z",
@@ -21408,7 +21404,7 @@
           },
           {
             "date": "2025-04-01T00:00:00Z",
-            "value": 0
+            "value": 13
           },
           {
             "date": "2025-05-01T00:00:00Z",
@@ -21416,11 +21412,11 @@
           },
           {
             "date": "2025-06-01T00:00:00Z",
-            "value": 0
+            "value": 11
           },
           {
             "date": "2025-07-01T00:00:00Z",
-            "value": 32
+            "value": 0
           },
           {
             "date": "2025-08-01T00:00:00Z",
@@ -21428,97 +21424,106 @@
           },
           {
             "date": "2025-09-01T00:00:00Z",
-            "value": 27
+            "value": 26
           },
           {
             "date": "2025-10-01T00:00:00Z",
-            "value": 25
+            "value": 12
           },
           {
             "date": "2025-11-01T00:00:00Z",
-            "value": 25
+            "value": 33
           },
           {
             "date": "2025-12-01T00:00:00Z",
-            "value": 19
+            "value": 25
           },
           {
             "date": "2026-01-01T00:00:00Z",
-            "value": 50
+            "value": 12
           },
           {
             "date": "2026-02-01T00:00:00Z",
-            "value": 43
+            "value": 33
           },
           {
             "date": "2026-03-01T00:00:00Z",
-            "value": 64
+            "value": 50
           },
           {
             "date": "2026-04-01T00:00:00Z",
-            "value": 55
+            "value": 69
           },
           {
             "date": "2026-05-01T00:00:00Z",
-            "value": 58
+            "value": 55
           },
           {
             "date": "2026-06-01T00:00:00Z",
-            "value": 66
+            "value": 46
           },
           {
             "date": "2026-07-01T00:00:00Z",
-            "value": 32
+            "value": 22
           },
           {
             "date": "2026-08-01T00:00:00Z",
-            "value": 23
+            "value": 0
           },
           {
             "date": "2026-09-01T00:00:00Z",
-            "value": 38
+            "value": 0
           },
           {
             "date": "2026-10-01T00:00:00Z",
-            "value": 19
+            "value": 4
+          },
+          {
+            "date": "2026-11-01T00:00:00Z",
+            "value": 22
           }
         ],
         "regions": [
           {
+            "code": "SG",
+            "name": "Singapore",
+            "value": 100
+          },
+          {
             "code": "KR",
             "name": "South Korea",
-            "value": 100
+            "value": 50
+          },
+          {
+            "code": "PH",
+            "name": "Philippines",
+            "value": 50
           }
         ],
         "summary": {
-          "current_index": 37,
-          "change_4w_pct": 34,
-          "change_12w_pct": -75,
-          "yoy_pct": -5,
+          "current_index": 10,
+          "change_4w_pct": 100,
+          "change_12w_pct": -100,
+          "yoy_pct": -63,
           "peak_index_12m": 100,
-          "region_count": 1,
-          "top_region": "South Korea"
+          "region_count": 3,
+          "top_region": "Singapore"
         }
       }
     }
   },
   "last_run": {
-    "status": "partial",
+    "status": "success",
     "updated_ids": [
-      "sulwhasoo",
-      "buldak",
-      "boj"
+      "pepero",
+      "milkis"
     ],
     "global_updated_ids": [
-      "sulwhasoo",
-      "jungkwanjang"
+      "milkis",
+      "maxim"
     ],
-    "errors": [
-      "batch 6: jungkwanjang: usable trend points not returned",
-      "batch 6: maxim: usable trend points not returned",
-      "batch 7: RateLimitError: Google rate-limited the Explore data request; stop and back off."
-    ],
+    "errors": [],
     "total_batches": 10
   },
-  "next_global_item": 26
+  "next_global_item": 28
 }
