@@ -2,8 +2,8 @@
   "schema_version": 2,
   "source": "Google Trends Explore",
   "method": "trendspyg browser collector",
-  "updated_at": "2026-11-24T06:18:25Z",
-  "next_batch": 8,
+  "updated_at": "2026-11-25T05:00:51Z",
+  "next_batch": 0,
   "items": {
     "roundlab": {
       "query": "ROUND LAB skincare",
@@ -8986,8 +8986,8 @@
       "query": "Milkis",
       "geo": "RU",
       "geo_label": "러시아",
-      "updated_at": "2026-11-20T03:38:36Z",
-      "delta": 51,
+      "updated_at": "2026-11-25T04:59:06Z",
+      "delta": -53,
       "trend": [
         0,
         0,
@@ -8998,9 +8998,9 @@
         0,
         0,
         0,
-        24,
-        0,
-        64
+        1,
+        2,
+        0
       ],
       "base": [
         0,
@@ -9012,11 +9012,11 @@
         0,
         0,
         0,
-        6,
-        6,
-        22
+        0,
+        1,
+        1
       ],
-      "trend_points": 29,
+      "trend_points": 6,
       "global": {
         "query": "Milkis",
         "updated_at": "2026-11-10T04:16:49Z",
@@ -17659,35 +17659,35 @@
       "query": "Pepero",
       "geo": "WORLD",
       "geo_label": "동남아·글로벌 대용",
-      "updated_at": "2026-11-20T03:37:46Z",
-      "delta": -21,
+      "updated_at": "2026-11-25T04:58:15Z",
+      "delta": -58,
       "trend": [
-        5,
-        5,
+        6,
         4,
         4,
         5,
         5,
         6,
         5,
-        5,
+        6,
         9,
-        41,
-        18
+        42,
+        19,
+        14
       ],
       "base": [
+        6,
         5,
         5,
         5,
         4,
-        4,
-        4,
-        5,
         5,
         5,
         6,
-        15,
-        18
+        6,
+        16,
+        19,
+        21
       ],
       "trend_points": 35,
       "global": {
@@ -21551,22 +21551,12 @@
   "last_run": {
     "status": "partial",
     "updated_ids": [
-      "sulwhasoo",
-      "buldak",
-      "boj",
-      "skin1004",
-      "reliefsun",
-      "chapagetti",
-      "bibigokimchi",
-      "jongga"
+      "pepero",
+      "milkis"
     ],
-    "global_updated_ids": [
-      "jsm",
-      "hetbahn"
-    ],
+    "global_updated_ids": [],
     "errors": [
-      "batch 6: jungkwanjang: usable trend points not returned",
-      "batch 6: maxim: usable trend points not returned"
+      "global homerunball: RateLimitError: Google rate-limited the Explore data request; stop and back off."
     ],
     "total_batches": 10
   },
